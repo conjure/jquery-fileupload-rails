@@ -595,6 +595,10 @@
             if (!options.formAcceptCharset) {
                 options.formAcceptCharset = options.form.attr('accept-charset');
             }
+         
+          /* JS Clean the filename */
+          console.log("Replacing", options.files[0].name, options.files[0].name.replace(/[^A-Za-z0-9.]/g, '_'));
+          options.formData.key = options.formData.key_template.replace('${filename}', options.files[0].name.replace(/[^A-Za-z0-9.]/g, '_'));
         },
 
         _getAJAXSettings: function (data) {
